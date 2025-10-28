@@ -1,0 +1,135 @@
+╔══════════════════════════════════════════════════════════════════╗
+║                    RAWAQINTISSAR WEBSITE                         ║
+║                    QUICK START GUIDE                             ║
+╚══════════════════════════════════════════════════════════════════╝
+
+🚀 GET STARTED IN 5 MINUTES!
+
+Step 1: ADD YOUR IMAGES
+─────────────────────────
+📁 Go to the "images" folder
+📷 Add 28 images (see IMAGE-REQUIREMENTS.txt for details)
+
+Quick tip: You can use placeholder images initially from:
+- https://placeholder.com
+- https://unsplash.com (search "pajamas" or "sleepwear")
+
+
+Step 2: UPDATE YOUR CONTACT INFO
+─────────────────────────────────
+Find and replace in ALL HTML files:
+
+❌ Replace this:          ✅ With your info:
+   +212 XXX XXX XXX   →      Your phone number
+   212XXXXXXXXX       →      Your WhatsApp number
+   @rawaqintissar     →      Your Instagram handle
+   @rawaqintissar     →      Your TikTok handle
+
+Files to update: index.html, products.html, about.html, gallery.html, contact.html
+
+
+Step 3: TEST THE WEBSITE
+─────────────────────────
+🌐 Open "index.html" in your web browser
+✓ Click all navigation links
+✓ Try language switcher (EN/FR/AR)
+✓ Test mobile view (resize browser)
+✓ Try product filtering on Products page
+✓ Test contact form
+
+
+Step 4: GO LIVE
+────────────────
+Option A - FREE HOSTING (Recommended for beginners):
+   1. Create account on Netlify.com or Vercel.com
+   2. Drag and drop your entire folder
+   3. Get instant HTTPS website!
+
+Option B - TRADITIONAL HOSTING:
+   1. Purchase hosting & domain
+   2. Upload files via FTP
+   3. Configure DNS settings
+
+
+IMPORTANT UPDATES NEEDED:
+─────────────────────────
+□ Phone numbers in all pages
+□ WhatsApp link in all pages
+□ Social media URLs (Instagram, TikTok)
+□ Email address
+□ Google Maps location (contact.html)
+□ All 28 product/gallery images
+
+
+FEATURES INCLUDED:
+──────────────────
+✅ 5 beautiful pages (Home, Products, About, Gallery, Contact)
+✅ 3 languages (English, French, Arabic with RTL)
+✅ Mobile responsive (works on all devices)
+✅ Product filtering by category
+✅ Image zoom/lightbox
+✅ WhatsApp integration
+✅ Contact form with validation
+✅ Social media integration
+✅ SEO optimized
+
+
+NEED MORE HELP?
+───────────────
+📖 Read PROJECT-SUMMARY.txt for complete documentation
+📖 Read SETUP-INSTRUCTIONS.txt for detailed setup
+📖 Check IMAGE-REQUIREMENTS.txt for image specifications
+
+
+YOUR WEBSITE STRUCTURE:
+───────────────────────
+Rawaqinstissar/
+├── index.html         → Home page
+├── products.html      → Product catalog
+├── about.html         → About us
+├── gallery.html       → Photo gallery
+├── contact.html       → Contact page
+├── css/style.css      → All styling
+├── js/                → JavaScript files
+├── images/            → Add your photos here!
+└── Logo/logo (2).png  → Your logo (already there!)
+
+
+QUICK CUSTOMIZATION:
+────────────────────
+🎨 Change colors: Edit css/style.css (line 2-5)
+📝 Add products: Copy product card in products.html
+🌍 Edit translations: Update js/translations.js
+📞 Change social links: Update all HTML files
+
+
+HOSTING RECOMMENDATIONS:
+────────────────────────
+FREE:
+• Netlify - Best for beginners, automatic HTTPS
+• Vercel - Fast, easy deployment
+• GitHub Pages - If you use Git
+
+PAID:
+• Hostinger - Cheap, reliable
+• SiteGround - Good support
+• Bluehost - Popular choice
+
+
+WHAT'S NEXT?
+────────────
+1. ✅ Website is built (DONE!)
+2. 📷 Add your product images
+3. 📝 Update contact information
+4. 🌐 Choose hosting provider
+5. 🚀 Launch your website
+6. 📱 Share on social media
+7. 💰 Start selling!
+
+
+╔══════════════════════════════════════════════════════════════════╗
+║  🎉 YOUR BEAUTIFUL WEBSITE IS READY TO LAUNCH! 🎉                ║
+║                                                                  ║
+║  Built with ❤️ for RawaqIntissar                                ║
+║  Sweet dreams and comfortable nights await! 💫                   ║
+╚══════════════════════════════════════════════════════════════════╝

@@ -1,0 +1,69 @@
+IMAGE REQUIREMENTS FOR RAWAQINTISSAR WEBSITE
+================================================
+
+Please add the following images to the "images" folder for the website to display properly:
+
+FEATURED COLLECTIONS (4 images)
+-------------------------------
+1. womens-collection.jpg - Women's sleepwear collection showcase (landscape, 4:3 ratio, min 800x600px)
+2. mens-collection.jpg - Men's sleepwear collection showcase (landscape, 4:3 ratio, min 800x600px)
+3. kids-collection.jpg - Kids' sleepwear collection showcase (landscape, 4:3 ratio, min 800x600px)
+4. sets-collection.jpg - Family matching sets showcase (landscape, 4:3 ratio, min 800x600px)
+
+INDIVIDUAL PRODUCTS (9 images)
+-------------------------------
+5. product-1.jpg - Elegant Pink Satin Set (portrait, 3:4 ratio, min 600x800px)
+6. product-2.jpg - Peach Dreams Robe (portrait, 3:4 ratio, min 600x800px)
+7. product-3.jpg - Rose Gold Nightgown (portrait, 3:4 ratio, min 600x800px)
+8. product-4.jpg - Classic Navy Pajama Set for men (portrait, 3:4 ratio, min 600x800px)
+9. product-5.jpg - Grey Comfort Robe for men (portrait, 3:4 ratio, min 600x800px)
+10. product-6.jpg - Princess Dreams Set for girls (portrait, 3:4 ratio, min 600x800px)
+11. product-7.jpg - Little Hero Pajamas for boys (portrait, 3:4 ratio, min 600x800px)
+12. product-8.jpg - Family Matching Set (portrait, 3:4 ratio, min 600x800px)
+13. product-9.jpg - Couples' Luxury Bundle (portrait, 3:4 ratio, min 600x800px)
+
+ABOUT PAGE IMAGES (3 images)
+-----------------------------
+14. about-story.jpg - Brand story visual (landscape, min 800x600px)
+15. about-mission.jpg - Mission statement visual (landscape, min 800x600px)
+16. about-image.jpg - General about us image (landscape, min 800x600px)
+
+GALLERY IMAGES (12 images)
+---------------------------
+17. gallery-1.jpg - Instagram-style product photo (square, 1:1 ratio, min 600x600px)
+18. gallery-2.jpg - Instagram-style product photo (square, 1:1 ratio, min 600x600px)
+19. gallery-3.jpg - Instagram-style product photo (portrait, can be tall, min 600x1200px)
+20. gallery-4.jpg - Instagram-style product photo (wide, 2:1 ratio, min 1200x600px)
+21. gallery-5.jpg - Instagram-style product photo (square, 1:1 ratio, min 600x600px)
+22. gallery-6.jpg - Instagram-style product photo (square, 1:1 ratio, min 600x600px)
+23. gallery-7.jpg - Instagram-style product photo (square, 1:1 ratio, min 600x600px)
+24. gallery-8.jpg - Instagram-style product photo (portrait, can be tall, min 600x1200px)
+25. gallery-9.jpg - Instagram-style product photo (square, 1:1 ratio, min 600x600px)
+26. gallery-10.jpg - Instagram-style product photo (wide, 2:1 ratio, min 1200x600px)
+27. gallery-11.jpg - Instagram-style product photo (square, 1:1 ratio, min 600x600px)
+28. gallery-12.jpg - Instagram-style product photo (square, 1:1 ratio, min 600x600px)
+
+IMAGE TIPS:
+-----------
+• All images should be in JPG format
+• Optimize images for web (compress to keep file size under 300KB each)
+• Use high-quality photos that showcase the products clearly
+• Ensure good lighting and professional photography
+• Color palette should match: soft pink, peach, gold tones
+• All product photos should have clean backgrounds or lifestyle settings
+• Gallery images can be lifestyle shots, detail shots, or product showcases
+
+TEMPORARY PLACEHOLDER:
+----------------------
+Until you add your actual product photos, you can:
+1. Use placeholder images from https://placeholder.com or similar services
+2. Use stock photos from free sites like Unsplash, Pexels (search for "pajamas", "sleepwear", "nightwear")
+3. Take photos of your actual products
+
+QUICK START WITH PLACEHOLDERS:
+-------------------------------
+You can create placeholder images using this pattern:
+https://via.placeholder.com/800x600/FFB6C1/FFFFFF?text=Product+Name
+
+Example for womens-collection.jpg:
+https://via.placeholder.com/800x600/FFB6C1/FFFFFF?text=Womens+Collection

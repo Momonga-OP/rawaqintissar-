@@ -1,0 +1,202 @@
+# RawaqIntissar - Luxury Pajama Showcase Website
+
+Welcome to RawaqIntissar, a beautiful multi-page showcase website for a luxury pajama store.
+
+## 🌟 Features
+
+✨ **Multi-Language Support**: English, French, and Arabic (with RTL support)
+📱 **Fully Responsive**: Mobile-first design that works on all devices
+🎨 **Beautiful Design**: Soft pink, peach, and gold color scheme
+⚡ **Fast & Optimized**: Clean code with smooth animations
+🛍️ **Product Showcase**: Filterable product catalog
+📸 **Gallery**: Instagram-style photo grid
+📞 **Contact Integration**: WhatsApp, Instagram, TikTok
+📝 **Contact Form**: With validation
+🗺️ **Google Maps**: Store location integration
+
+## 📁 Project Structure
+
+```
+Rawaqinstissar/
+├── index.html           # Home page
+├── products.html        # Products catalog
+├── about.html          # About us page
+├── gallery.html        # Photo gallery
+├── contact.html        # Contact page
+├── css/
+│   └── style.css       # Main stylesheet
+├── js/
+│   ├── main.js         # Main JavaScript
+│   ├── translations.js # Multi-language support
+│   ├── products.js     # Product filtering & lightbox
+│   ├── contact.js      # Contact form handling
+│   └── gallery.js      # Gallery functionality
+├── images/             # Product & gallery images
+└── Logo/
+    └── logo (2).png    # Brand logo
+```
+
+## 🚀 Getting Started
+
+### Setup Instructions
+
+1. **Add Your Images**
+   - Add product images to the `images/` folder
+   - Required images:
+     - `womens-collection.jpg`, `mens-collection.jpg`, `kids-collection.jpg`, `sets-collection.jpg` (Featured collections)
+     - `product-1.jpg` through `product-9.jpg` (Individual products)
+     - `about-story.jpg`, `about-mission.jpg`, `about-image.jpg` (About page)
+     - `gallery-1.jpg` through `gallery-12.jpg` (Gallery page)
+
+2. **Update Contact Information**
+   - Replace `+212 XXX XXX XXX` with your actual phone number in all HTML files
+   - Update WhatsApp link: Replace `212XXXXXXXXX` with your WhatsApp number
+   - Update social media links:
+     - Instagram: `https://instagram.com/rawaqintissar`
+     - TikTok: `https://tiktok.com/@rawaqintissar`
+   - Update email: `info@rawaqintissar.com`
+
+3. **Google Maps Integration**
+   - In `contact.html`, replace the Google Maps iframe embed URL with your actual location
+
+4. **Launch the Website**
+   - Simply open `index.html` in a web browser
+   - Or host on a web server for production
+
+## 🎨 Color Scheme
+
+- **Primary Pink**: #FFB6C1
+- **Secondary Peach**: #FFDAB9
+- **Accent Gold**: #FFD700
+- **Soft Pink**: #FFE4E9
+- **Dark Pink**: #FF69B4
+
+## 📱 Pages
+
+1. **Home** (`index.html`)
+   - Hero section with call-to-action
+   - Trust indicators (Quality, Comfort, Unique Designs)
+   - Featured collections
+   - About snippet
+   - Customer testimonials
+   - Newsletter subscription
+
+2. **Products** (`products.html`)
+   - Filterable product grid (All, Women's, Men's, Kids', Sets)
+   - Product image zoom/lightbox
+   - WhatsApp contact buttons
+
+3. **About** (`about.html`)
+   - Brand story
+   - Mission statement
+   - Core values
+   - Call-to-action section
+
+4. **Gallery** (`gallery.html`)
+   - Instagram-style photo grid
+   - Image lightbox
+   - Social media integration
+
+5. **Contact** (`contact.html`)
+   - Contact information
+   - Contact form with validation
+   - Google Maps integration
+   - Business hours
+   - Social media links
+
+## 🌍 Language Support
+
+The website supports three languages:
+- **English** (EN) - Default
+- **French** (FR)
+- **Arabic** (AR) - with RTL support
+
+Language preference is saved in localStorage and persists across sessions.
+
+## 📞 Social Media Integration
+
+- **WhatsApp**: Floating button (bottom right) with pre-filled message
+- **Instagram**: Links in header and footer
+- **TikTok**: Links in header and footer
+
+## 🎯 Key Features Implemented
+
+✅ Mobile hamburger menu
+✅ Sticky header with smooth scroll
+✅ Smooth page transitions
+✅ Product filtering by category
+✅ Image lightbox/zoom
+✅ Form validation
+✅ Multi-language switching
+✅ RTL support for Arabic
+✅ Responsive design (mobile-first)
+✅ SEO optimized
+✅ Fast loading with optimized code
+✅ Accessibility features
+
+## 🔧 Customization
+
+### Fonts
+The website uses:
+- **Poppins** - Body text
+- **Playfair Display** - Headings
+
+### Adding New Products
+
+Edit `products.html` and add new product cards following this structure:
+
+```html
+<div class="product-card" data-category="womens">
+    <div class="product-image">
+        <img src="images/your-image.jpg" alt="Product Name">
+        <div class="product-overlay">
+            <button class="btn-icon zoom-btn" data-image="images/your-image.jpg">
+                <i class="fas fa-search-plus"></i>
+            </button>
+            <a href="#whatsapp" class="btn-icon whatsapp-btn">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </div>
+    <div class="product-info">
+        <h3 class="product-title" data-translate="product_name_key">Product Name</h3>
+        <p class="product-desc" data-translate="product_desc_key">Description</p>
+    </div>
+</div>
+```
+
+Then add translations to `js/translations.js`.
+
+## 📊 Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+- Mobile browsers
+
+## 📝 Notes
+
+- All images should be optimized for web (compressed)
+- Recommended image formats: JPG for photos, PNG for logos
+- Update the phone number and social media links before going live
+- Consider adding SSL certificate (HTTPS) for production
+- The contact form currently shows an alert - integrate with a backend service for production
+
+## 🎁 Additional Features to Consider
+
+- Email newsletter integration (Mailchimp, SendGrid)
+- Backend for contact form (PHP, Node.js, or form service)
+- Analytics (Google Analytics)
+- Live chat integration
+- Product wishlist
+- Size guide
+- Customer reviews system
+
+## 📄 License
+
+This project is created for RawaqIntissar pajama store.
+
+---
+
+**Built with ❤️ for sweet dreams and comfortable nights**
