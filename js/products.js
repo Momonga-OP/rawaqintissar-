@@ -1,5 +1,54 @@
 // Products Page Functionality
 document.addEventListener('DOMContentLoaded', () => {
+    // Optimized Image Loading
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    const imageContainers = document.querySelectorAll('.product-image, .featured-image');
+    
+    // Image load handler
+    const handleImageLoad = (img) => {
+        img.classList.add('loaded');
+        const container = img.closest('.product-image, .featured-image, .gallery-item');
+        if (container) {
+            container.classList.add('loaded');
+        }
+    };
+    
+    // Set up Intersection Observer for better lazy loading
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.complete) {
+                        handleImageLoad(img);
+                    } else {
+                        img.addEventListener('load', () => handleImageLoad(img));
+                    }
+                    observer.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px'
+        });
+        
+        images.forEach(img => {
+            if (img.complete) {
+                handleImageLoad(img);
+            } else {
+                imageObserver.observe(img);
+            }
+        });
+    } else {
+        // Fallback for browsers without Intersection Observer
+        images.forEach(img => {
+            if (img.complete) {
+                handleImageLoad(img);
+            } else {
+                img.addEventListener('load', () => handleImageLoad(img));
+            }
+        });
+    }
+    
     // Product Filtering
     const filterButtons = document.querySelectorAll('.filter-btn');
     const productCards = document.querySelectorAll('.product-card');
