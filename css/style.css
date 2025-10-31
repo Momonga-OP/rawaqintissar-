@@ -12,10 +12,10 @@ body { font-family: 'Montserrat', sans-serif; color: var(--text-dark); line-heig
 h1, h2, h3, h4, h5, h6 { font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 1.3; }
 [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 { font-family: 'Amiri', 'Cormorant Garamond', serif; }
 img { max-width: 100%; height: auto; display: block; }
-img[loading="lazy"] { opacity: 0; transition: opacity 0.3s ease-in; }
-img[loading="lazy"].loaded { opacity: 1; }
-.product-image img, .featured-image img, .gallery-img { will-change: transform; transform: translateZ(0); backface-visibility: hidden; }
-.product-image, .featured-image, .gallery-item { background: linear-gradient(135deg, var(--soft-pink), var(--secondary-color)); }
+img[loading="lazy"], img[loading="eager"] { opacity: 0; transition: opacity 0.5s ease-in; will-change: opacity; }
+img[loading="lazy"].loaded, img[loading="eager"].loaded { opacity: 1; will-change: auto; }
+.product-image img, .featured-image img, .gallery-img { will-change: transform; transform: translateZ(0); backface-visibility: hidden; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; }
+.product-image, .featured-image, .gallery-item { background: linear-gradient(135deg, var(--soft-pink), var(--secondary-color)); transition: background-color 0.3s ease; position: relative; }
 .product-image::before, .featured-image::before, .gallery-item::before {
     content: '';
     position: absolute;
@@ -29,8 +29,12 @@ img[loading="lazy"].loaded { opacity: 1; }
     border-top-color: transparent;
     animation: spinner 0.8s linear infinite;
     z-index: 1;
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
-.product-image.loaded::before, .featured-image.loaded::before, .gallery-item.loaded::before { display: none; }
+.product-image.loaded::before, .featured-image.loaded::before, .gallery-item.loaded::before { opacity: 0; pointer-events: none; }
+.product-image.error::before, .featured-image.error::before, .gallery-item.error::before { display: none; }
+.product-image.error::after { content: '⚠️'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; z-index: 2; }
 @keyframes spinner {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }

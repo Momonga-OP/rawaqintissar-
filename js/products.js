@@ -1,50 +1,100 @@
 // Products Page Functionality
 document.addEventListener('DOMContentLoaded', () => {
-    // Optimized Image Loading
-    const images = document.querySelectorAll('img[loading="lazy"]');
+    // Optimized Image Loading with Progressive Enhancement
+    const images = document.querySelectorAll('img[loading="lazy"], img[loading="eager"]');
     const imageContainers = document.querySelectorAll('.product-image, .featured-image');
     
-    // Image load handler
+    // Create low-quality placeholder effect
+    const createPlaceholder = (container) => {
+        if (!container.classList.contains('has-placeholder')) {
+            container.style.backgroundColor = '#f0f0f0';
+            container.classList.add('has-placeholder');
+        }
+    };
+    
+    // Image load handler with fade-in effect
     const handleImageLoad = (img) => {
         img.classList.add('loaded');
         const container = img.closest('.product-image, .featured-image, .gallery-item');
         if (container) {
             container.classList.add('loaded');
+            container.style.backgroundColor = 'transparent';
         }
     };
     
-    // Set up Intersection Observer for better lazy loading
+    // Handle images that are already loaded (cached)
+    const checkImageLoaded = (img) => {
+        // Check if image is complete AND has dimensions
+        if (img.complete && img.naturalWidth > 0) {
+            handleImageLoad(img);
+            return true;
+        }
+        return false;
+    };
+    
+    // Set up Intersection Observer for better lazy loading with priority queue
     if ('IntersectionObserver' in window) {
+        // Aggressive preloading for first 6 images
         const imageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
-                    if (img.complete) {
-                        handleImageLoad(img);
-                    } else {
-                        img.addEventListener('load', () => handleImageLoad(img));
+                    const container = img.closest('.product-image, .featured-image, .gallery-item');
+                    
+                    if (container) {
+                        createPlaceholder(container);
+                    }
+                    
+                    // Check if already loaded
+                    if (!checkImageLoaded(img)) {
+                        // Add load and error listeners
+                        img.addEventListener('load', () => handleImageLoad(img), { once: true });
+                        img.addEventListener('error', () => {
+                            console.warn('Image failed to load:', img.src);
+                            // Make visible anyway to show broken image icon
+                            img.style.opacity = '1';
+                            if (container) {
+                                container.classList.add('error');
+                                container.classList.add('loaded');
+                            }
+                        }, { once: true });
                     }
                     observer.unobserve(img);
                 }
             });
         }, {
-            rootMargin: '50px'
+            rootMargin: '100px', // Load images 100px before they come into view
+            threshold: 0.01
         });
         
-        images.forEach(img => {
-            if (img.complete) {
-                handleImageLoad(img);
-            } else {
+        images.forEach((img, index) => {
+            const container = img.closest('.product-image, .featured-image, .gallery-item');
+            if (container) {
+                createPlaceholder(container);
+            }
+            
+            // Check if image is already loaded (from cache)
+            if (!checkImageLoaded(img)) {
                 imageObserver.observe(img);
             }
         });
     } else {
         // Fallback for browsers without Intersection Observer
         images.forEach(img => {
-            if (img.complete) {
-                handleImageLoad(img);
-            } else {
-                img.addEventListener('load', () => handleImageLoad(img));
+            const container = img.closest('.product-image, .featured-image, .gallery-item');
+            if (container) {
+                createPlaceholder(container);
+            }
+            
+            if (!checkImageLoaded(img)) {
+                img.addEventListener('load', () => handleImageLoad(img), { once: true });
+                img.addEventListener('error', () => {
+                    img.style.opacity = '1';
+                    if (container) {
+                        container.classList.add('error');
+                        container.classList.add('loaded');
+                    }
+                }, { once: true });
             }
         });
     }
