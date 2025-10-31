@@ -46,6 +46,11 @@
                 </nav>
 
                 <div class="header-actions">
+                    <button class="cart-btn" id="cart-btn" aria-label="Shopping cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+
                     <div class="language-switcher">
                         <button class="lang-btn active" data-lang="ar">AR</button>
                         <button class="lang-btn" data-lang="fr">FR</button>
@@ -92,7 +97,7 @@
         <div class="container">
             <div class="products-grid" id="products-grid">
                 <!-- Women's Products -->
-                <div class="product-card" data-category="womens">
+                <div class="product-card" data-category="womens" data-product-id="1" data-product-name="Women's Pajama Set #1" data-product-image="images/Untitled design (1).jpg">
                     <div class="product-image">
                         <img src="images/Untitled design (1).jpg" alt="Product 1" loading="eager" decoding="async">
                         <div class="product-overlay">
@@ -103,6 +108,11 @@
                                 <i class="fab fa-whatsapp"></i>
                             </a>
                         </div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-add-cart" data-translate="add_to_cart">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
                     </div>
                 </div>
 
@@ -807,9 +817,43 @@
         <img src="" alt="Product Image" id="lightbox-img">
     </div>
 
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2 data-translate="cart_title">Shopping Cart</h2>
+            <button class="cart-close" id="cart-close" aria-label="Close cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="cart-body" id="cart-body">
+            <div class="cart-empty" id="cart-empty">
+                <i class="fas fa-shopping-cart"></i>
+                <p data-translate="cart_empty">Your cart is empty</p>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be inserted here -->
+            </div>
+        </div>
+        
+        <div class="cart-footer" id="cart-footer">
+            <div class="cart-total">
+                <span data-translate="cart_total_items">Total Items:</span>
+                <span id="cart-total-count">0</span>
+            </div>
+            <button class="btn btn-primary btn-full" id="checkout-btn" data-translate="cart_send_whatsapp">
+                <i class="fab fa-whatsapp"></i> Send Order to WhatsApp
+            </button>
+        </div>
+    </div>
+    
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+
     <script src="js/translations.js"></script>
     <script src="js/main.js"></script>
     <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
 </body>
 </html>
 

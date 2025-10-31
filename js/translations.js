@@ -114,7 +114,14 @@ const translations = {
         // Gallery Page
         gallery_page_title: "Our Gallery", gallery_page_subtitle: "Discover the beauty of our collections",
         gallery_instagram_title: "Follow Us on Instagram", gallery_instagram_text: "For more updates and behind-the-scenes content",
-        gallery_instagram_btn: "@rawaqintissar"
+        gallery_instagram_btn: "@rawaqintissar",
+        
+        // Shopping Cart
+        add_to_cart: "Add to Cart",
+        cart_title: "Shopping Cart",
+        cart_empty: "Your cart is empty",
+        cart_total_items: "Total Items:",
+        cart_send_whatsapp: "Send Order to WhatsApp"
     },
     
     fr: {
@@ -208,7 +215,14 @@ const translations = {
         contact_map_title: "Nous Trouver",
         gallery_page_title: "Notre Galerie", gallery_page_subtitle: "Découvrez la beauté de nos collections",
         gallery_instagram_title: "Suivez-nous sur Instagram", gallery_instagram_text: "Pour plus de mises à jour",
-        gallery_instagram_btn: "@rawaqintissar"
+        gallery_instagram_btn: "@rawaqintissar",
+        
+        // Shopping Cart
+        add_to_cart: "Ajouter au Panier",
+        cart_title: "Panier",
+        cart_empty: "Votre panier est vide",
+        cart_total_items: "Total Articles:",
+        cart_send_whatsapp: "Envoyer la Commande sur WhatsApp"
     },
     
     ar: {
@@ -302,7 +316,14 @@ const translations = {
         contact_map_title: "اعثر علينا",
         gallery_page_title: "معرضنا", gallery_page_subtitle: "اكتشف جمال مجموعاتنا",
         gallery_instagram_title: "تابعنا على إنستغرام", gallery_instagram_text: "للمزيد من التحديثات والمحتوى",
-        gallery_instagram_btn: "@rawaqintissar"
+        gallery_instagram_btn: "@rawaqintissar",
+        
+        // Shopping Cart
+        add_to_cart: "أضف إلى السلة",
+        cart_title: "سلة التسوق",
+        cart_empty: "سلتك فارغة",
+        cart_total_items: "إجمالي العناصر:",
+        cart_send_whatsapp: "إرسال الطلب على واتساب"
     }
 };
 
