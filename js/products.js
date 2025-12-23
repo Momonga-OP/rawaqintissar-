@@ -112,13 +112,16 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const category = button.getAttribute('data-category');
             
-            productCards.forEach(card => {
+            // Staggered animation for filtered products
+            let visibleIndex = 0;
+            productCards.forEach((card, index) => {
                 if (category === 'all' || card.getAttribute('data-category') === category) {
                     card.style.display = 'block';
                     setTimeout(() => {
                         card.style.opacity = '1';
                         card.style.transform = 'translateY(0)';
-                    }, 10);
+                    }, visibleIndex * 50);
+                    visibleIndex++;
                 } else {
                     card.style.opacity = '0';
                     card.style.transform = 'translateY(20px)';
@@ -173,5 +176,108 @@ document.addEventListener('DOMContentLoaded', () => {
             lightbox.classList.remove('active');
             document.body.style.overflow = 'auto';
         }
+    });
+
+    // Quick View Modal Functionality
+    const createQuickViewModal = () => {
+        const modal = document.createElement('div');
+        modal.className = 'quick-view-modal';
+        modal.innerHTML = `
+            <div class="quick-view-content">
+                <button class="quick-view-close" aria-label="Close quick view">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="quick-view-body">
+                    <div class="quick-view-image">
+                        <img src="" alt="Product">
+                    </div>
+                    <div class="quick-view-details">
+                        <h2></h2>
+                        <p></p>
+                        <div class="quick-view-actions">
+                            <button class="btn btn-primary" id="qv-whatsapp">
+                                <i class="fab fa-whatsapp"></i> Contact on WhatsApp
+                            </button>
+                            <button class="btn btn-secondary" id="qv-zoom">
+                                <i class="fas fa-search-plus"></i> View Full Size
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+        return modal;
+    };
+
+    const quickViewModal = createQuickViewModal();
+    const quickViewClose = quickViewModal.querySelector('.quick-view-close');
+    const quickViewImg = quickViewModal.querySelector('.quick-view-image img');
+    const quickViewTitle = quickViewModal.querySelector('.quick-view-details h2');
+    const quickViewDesc = quickViewModal.querySelector('.quick-view-details p');
+    const qvWhatsApp = quickViewModal.getElementById('qv-whatsapp');
+    const qvZoom = quickViewModal.getElementById('qv-zoom');
+
+    // Add quick view buttons to product cards
+    productCards.forEach(card => {
+        const overlay = card.querySelector('.product-overlay');
+        if (overlay && !overlay.querySelector('.quick-view-btn')) {
+            const quickViewBtn = document.createElement('button');
+            quickViewBtn.className = 'btn-icon quick-view-btn';
+            quickViewBtn.innerHTML = '<i class="fas fa-eye"></i>';
+            quickViewBtn.setAttribute('aria-label', 'Quick view');
+            overlay.insertBefore(quickViewBtn, overlay.firstChild);
+
+            quickViewBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const imgSrc = card.querySelector('.product-image img')?.src;
+                const productName = card.getAttribute('data-product-name') || 'Luxury Product';
+                const productDesc = 'Premium quality sleepwear crafted with the finest materials for ultimate comfort.';
+
+                quickViewImg.src = imgSrc;
+                quickViewTitle.textContent = productName;
+                quickViewDesc.textContent = productDesc;
+
+                quickViewModal.classList.add('active');
+                document.body.classList.add('no-scroll');
+
+                qvWhatsApp.onclick = () => {
+                    window.open(`https://wa.me/212614866647?text=Hello%20RawaqIntissar,%20I'm%20interested%20in%20${encodeURIComponent(productName)}`, '_blank');
+                };
+
+                qvZoom.onclick = () => {
+                    quickViewModal.classList.remove('active');
+                    lightboxImg.src = imgSrc;
+                    lightbox.classList.add('active');
+                };
+            });
+        }
+    });
+
+    // Close quick view modal
+    const closeQuickView = () => {
+        quickViewModal.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+    };
+
+    quickViewClose.addEventListener('click', closeQuickView);
+    quickViewModal.addEventListener('click', (e) => {
+        if (e.target === quickViewModal) closeQuickView();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && quickViewModal.classList.contains('active')) {
+            closeQuickView();
+        }
+    });
+
+    // Add hover effect enhancement
+    productCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.zIndex = '10';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.style.zIndex = '1';
+        });
     });
 });

@@ -1,129 +1,5 @@
 // Translation Data
 const translations = {
-    en: {
-        // Banner
-        banner_message: "You can buy our pajamas from our local shop. Delivery is coming soon in all of Morocco!",
-        
-        // Navigation
-        nav_home: "Home", nav_products: "Products", nav_about: "About Us", nav_gallery: "Gallery", nav_contact: "Contact",
-        
-        // Hero Section
-        hero_title: "Sweet Dreams Begin Here", hero_subtitle: "Discover our exclusive collection of luxury sleepwear",
-        hero_btn_collection: "See Collection", hero_btn_whatsapp: "Contact Us",
-        
-        // Trust Indicators
-        trust_quality: "Quality Guarantee", trust_quality_desc: "Premium fabrics & craftsmanship",
-        trust_comfort: "Comfortable Fabrics", trust_comfort_desc: "Soft, breathable materials",
-        trust_unique: "Unique Designs", trust_unique_desc: "Exclusive & elegant styles",
-        
-        // Featured Section
-        featured_title: "Featured Collections", featured_subtitle: "Explore our most popular sleepwear",
-        featured_womens: "Women's Collection", featured_mens: "Men's Collection",
-        featured_kids: "Kids' Collection", featured_sets: "Sets & Bundles", featured_lingeries: "Lingeries", featured_towels: "Towels", featured_view: "View Collection",
-        
-        // About Snippet
-        about_snippet_title: "Crafted with Love & Care",
-        about_snippet_text: "At RawaqIntissar, we believe that everyone deserves to experience luxury and comfort at bedtime. Our carefully curated collection combines elegant designs with the softest fabrics to create sleepwear that makes you feel special every night.",
-        about_snippet_btn: "Learn More About Us",
-        
-        // Testimonials
-        testimonials_title: "What Our Customers Say", testimonials_subtitle: "Real reviews from happy customers",
-        testimonial_1_text: "The quality is exceptional! I've never felt more comfortable in pajamas. The fabric is so soft and the designs are absolutely beautiful.",
-        testimonial_1_name: "Sarah M.", testimonial_1_location: "Paris, France",
-        testimonial_2_text: "I bought matching sets for my whole family. Everyone loves them! Great quality and fast delivery through WhatsApp.",
-        testimonial_2_name: "Amira K.", testimonial_2_location: "Casablanca, Morocco",
-        testimonial_3_text: "Elegant, comfortable, and unique designs. RawaqIntissar has become my go-to for luxury sleepwear. Highly recommend!",
-        testimonial_3_name: "Layla A.", testimonial_3_location: "Dubai, UAE",
-        
-        // Newsletter
-        newsletter_title: "Join Our Community", newsletter_subtitle: "Subscribe to get special offers and updates",
-        newsletter_placeholder: "Enter your email", newsletter_btn: "Subscribe",
-        
-        // Footer
-        footer_desc: "Luxury sleepwear crafted with love and care for your comfort.",
-        footer_quick_links: "Quick Links", footer_categories: "Categories", footer_contact: "Contact Info",
-        footer_phone: "+212 614 866 647", footer_hours: "Every day: 11 AM - 11 PM",
-        footer_copyright: "© 2025 RawaqIntissar. All rights reserved.",
-        
-        // Products Page
-        products_page_title: "Our Collection", products_page_subtitle: "Discover luxury sleepwear for everyone",
-        filter_all: "All", filter_womens: "Women's", filter_mens: "Men's", filter_kids: "Kids'", filter_sets: "Sets", filter_lingeries: "Lingeries", filter_towels: "Towels",
-        
-        // Towel Products
-        towel_1_name: "Luxury Bath Towel", towel_1_desc: "Ultra-soft premium cotton towel",
-        towel_2_name: "Elegant Towel Set", towel_2_desc: "Plush absorbent towel collection",
-        towel_3_name: "Premium Bath Sheet", towel_3_desc: "Extra large luxury towel",
-        towel_4_name: "Spa Quality Towel", towel_4_desc: "Hotel-grade softness",
-        towel_5_name: "Designer Bath Towel", towel_5_desc: "Stylish and super absorbent",
-        towel_6_name: "Cotton Comfort Towel", towel_6_desc: "100% Egyptian cotton",
-        towel_7_name: "Velvet Touch Towel", towel_7_desc: "Silky smooth texture",
-        towel_8_name: "Fluffy Bath Towel", towel_8_desc: "Cloud-like softness",
-        towel_9_name: "Quick Dry Towel", towel_9_desc: "Fast drying technology",
-        towel_10_name: "Royal Spa Towel", towel_10_desc: "Maximum absorbency",
-        towel_11_name: "Deluxe Hand Towel", towel_11_desc: "Perfect for daily use",
-        towel_12_name: "Premium Face Towel", towel_12_desc: "Gentle on skin",
-        towel_13_name: "Luxury Beach Towel", towel_13_desc: "Extra large and colorful",
-        towel_14_name: "Organic Cotton Towel", towel_14_desc: "Eco-friendly and soft",
-        towel_15_name: "Complete Towel Set", towel_15_desc: "Full bathroom collection",
-        product_1_name: "Elegant Pink Satin Set", product_1_desc: "Luxurious satin pajama set with delicate lace trim",
-        product_2_name: "Peach Dreams Robe", product_2_desc: "Soft silk robe perfect for relaxation",
-        product_3_name: "Rose Gold Nightgown", product_3_desc: "Elegant flowing nightgown with gold accents",
-        product_4_name: "Classic Navy Pajama Set", product_4_desc: "Comfortable cotton pajamas for men",
-        product_5_name: "Grey Comfort Robe", product_5_desc: "Plush terry robe for ultimate comfort",
-        product_6_name: "Princess Dreams Set", product_6_desc: "Adorable pajama set for little girls",
-        product_7_name: "Little Hero Pajamas", product_7_desc: "Fun and cozy pajamas for boys",
-        product_8_name: "Family Matching Set", product_8_desc: "Beautiful matching pajamas for the whole family",
-        product_9_name: "Couples' Luxury Bundle", product_9_desc: "Matching set for couples in premium fabrics",
-        
-        // About Page
-        about_page_title: "About RawaqIntissar", about_page_subtitle: "Where comfort meets elegance",
-        about_story_title: "Our Story",
-        about_story_p1: "RawaqIntissar was born from a simple belief: everyone deserves to feel luxurious and comfortable at the end of each day. What started as a passion for quality sleepwear has blossomed into a brand dedicated to bringing elegance and comfort to bedtime.",
-        about_story_p2: "We carefully curate each piece in our collection, ensuring that every item meets our high standards for fabric quality, design excellence, and lasting comfort. Our name, RawaqIntissar, reflects our commitment to victory through comfort - helping you win the day by starting and ending it in luxury.",
-        about_mission_title: "Our Mission",
-        about_mission_p1: "At RawaqIntissar, we're on a mission to transform bedtime into a luxurious experience for everyone. We believe that quality sleepwear is not just about comfort - it's about self-care, confidence, and celebrating the moments of rest that rejuvenate us for tomorrow.",
-        about_mission_p2: "We strive to make luxury accessible, offering premium sleepwear that combines exquisite design with exceptional comfort, all while maintaining the highest standards of quality and customer service.",
-        about_values_title: "Our Values", about_values_subtitle: "What makes us unique",
-        value_quality_title: "Quality First", value_quality_desc: "We never compromise on quality. Every piece is crafted from premium fabrics that are soft, durable, and luxurious to the touch.",
-        value_design_title: "Elegant Design", value_design_desc: "Our designs blend timeless elegance with modern style, creating sleepwear that's as beautiful as it is comfortable.",
-        value_care_title: "Customer Care", value_care_desc: "Your satisfaction is our priority. We're dedicated to providing exceptional service and ensuring you love every purchase.",
-        value_sustainability_title: "Sustainability", value_sustainability_desc: "We're committed to responsible practices, choosing sustainable materials and ethical production methods.",
-        value_inclusivity_title: "For Everyone", value_inclusivity_desc: "Beautiful sleepwear for women, men, and children - because everyone deserves luxury and comfort.",
-        value_uniqueness_title: "Unique Pieces", value_uniqueness_desc: "Our collections feature exclusive designs you won't find anywhere else, making each piece special.",
-        about_cta_title: "Experience the RawaqIntissar Difference", about_cta_text: "Discover our collection and find your perfect sleepwear",
-        about_cta_shop: "Shop Now", about_cta_contact: "Contact Us",
-        
-        // Contact Page
-        contact_page_title: "Get In Touch", contact_page_subtitle: "We'd love to hear from you",
-        contact_info_title: "Contact Information", contact_info_text: "Have a question or want to learn more about our products? Reach out to us!",
-        contact_whatsapp: "WhatsApp", contact_whatsapp_btn: "Chat with us",
-        contact_email: "Email", contact_hours_title: "Business Hours",
-        contact_hours: "Every day: 11:00 AM - 11:00 PM",
-        contact_location: "Location", contact_address: "Allal EL fassi Nahda, Khouribga",
-        contact_social_title: "Follow Us",
-        contact_form_title: "Send Us a Message",
-        contact_form_name: "Name *", contact_form_name_placeholder: "Your name",
-        contact_form_email: "Email *", contact_form_email_placeholder: "your@email.com",
-        contact_form_phone: "Phone", contact_form_phone_placeholder: "Your phone number",
-        contact_form_subject: "Subject *", contact_form_subject_placeholder: "How can we help?",
-        contact_form_message: "Message *", contact_form_message_placeholder: "Tell us more...",
-        contact_form_submit: "Send Message",
-        contact_form_success: "Thank you! Your message has been sent successfully.",
-        contact_map_title: "Find Us",
-        
-        // Gallery Page
-        gallery_page_title: "Our Gallery", gallery_page_subtitle: "Discover the beauty of our collections",
-        gallery_instagram_title: "Follow Us on Instagram", gallery_instagram_text: "For more updates and behind-the-scenes content",
-        gallery_instagram_btn: "@rawaqintissar",
-        
-        // Shopping Cart
-        add_to_cart: "Add to Cart",
-        cart_title: "Shopping Cart",
-        cart_empty: "Your cart is empty",
-        cart_total_items: "Total Items:",
-        cart_send_whatsapp: "Send Order to WhatsApp"
-    },
-    
     fr: {
         // Banner
         banner_message: "Vous pouvez acheter nos pyjamas dans notre boutique locale. La livraison arrive bientôt dans tout le Maroc!",
@@ -222,7 +98,12 @@ const translations = {
         cart_title: "Panier",
         cart_empty: "Votre panier est vide",
         cart_total_items: "Total Articles:",
-        cart_send_whatsapp: "Envoyer la Commande sur WhatsApp"
+        cart_send_whatsapp: "Envoyer la Commande sur WhatsApp",
+        order_confirm_title: "Confirmer Votre Commande",
+        order_confirm_subtitle: "Vérifiez votre commande avant d'envoyer",
+        order_total: "Total Articles:",
+        order_cancel: "Annuler",
+        order_send: "Envoyer sur WhatsApp"
     },
     
     ar: {
@@ -323,7 +204,12 @@ const translations = {
         cart_title: "سلة التسوق",
         cart_empty: "سلتك فارغة",
         cart_total_items: "إجمالي العناصر:",
-        cart_send_whatsapp: "إرسال الطلب على واتساب"
+        cart_send_whatsapp: "إرسال الطلب على واتساب",
+        order_confirm_title: "تأكيد طلبك",
+        order_confirm_subtitle: "راجع طلبك قبل الإرسال",
+        order_total: "إجمالي العناصر:",
+        order_cancel: "إلغاء",
+        order_send: "إرسال على واتساب"
     }
 };
 

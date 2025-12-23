@@ -1,5 +1,60 @@
 // Main JavaScript
 document.addEventListener('DOMContentLoaded', () => {
+    // Loading Screen
+    const loadingOverlay = document.createElement('div');
+    loadingOverlay.className = 'loading-overlay';
+    loadingOverlay.innerHTML = `
+        <div class="loading-spinner"></div>
+        <p style="color: var(--text-light); font-weight: 500;">Loading...</p>
+    `;
+    document.body.prepend(loadingOverlay);
+    
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            loadingOverlay.classList.add('hidden');
+            setTimeout(() => loadingOverlay.remove(), 500);
+        }, 800);
+    });
+
+    // Scroll Progress Bar
+    const scrollProgress = document.createElement('div');
+    scrollProgress.className = 'scroll-progress';
+    scrollProgress.innerHTML = '<div class="scroll-progress-bar"></div>';
+    document.body.appendChild(scrollProgress);
+    const progressBar = scrollProgress.querySelector('.scroll-progress-bar');
+    
+    window.addEventListener('scroll', () => {
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (window.scrollY / windowHeight) * 100;
+        progressBar.style.width = scrolled + '%';
+    });
+
+    // Reveal on Scroll
+    const revealElements = document.querySelectorAll('.trust-item, .featured-card, .value-card, .product-card');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('reveal', 'active');
+                }, index * 100);
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    
+    revealElements.forEach(el => {
+        el.classList.add('reveal');
+        revealObserver.observe(el);
+    });
+
+    // Parallax Effect on Hero
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+    }
     // Mobile Menu Toggle
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
@@ -28,16 +83,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // Sticky Header
-    const header = document.getElementById('header');
+    const mainHeader = document.getElementById('header');
     let lastScroll = 0;
     
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
         
         if (currentScroll > 100) {
-            header.style.boxShadow = '0 5px 30px rgba(255, 182, 193, 0.3)';
+            mainHeader.style.boxShadow = '0 5px 30px rgba(255, 182, 193, 0.3)';
         } else {
-            header.style.boxShadow = '0 2px 20px rgba(255, 182, 193, 0.2)';
+            mainHeader.style.boxShadow = '0 2px 20px rgba(255, 182, 193, 0.2)';
         }
         
         lastScroll = currentScroll;
@@ -60,19 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Newsletter Form
-    const newsletterForm = document.getElementById('newsletter-form');
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = newsletterForm.querySelector('input[type="email"]').value;
-            
-            // Here you would normally send to a backend
-            alert(`Thank you for subscribing with ${email}!`);
-            newsletterForm.reset();
-        });
-    }
-    
     // Fade In on Scroll Animation
     const observerOptions = {
         threshold: 0.1,
@@ -88,9 +130,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
     
-    document.querySelectorAll('.trust-item, .featured-card, .testimonial-card, .value-card').forEach(el => {
+    document.querySelectorAll('.testimonial-card').forEach(el => {
         observer.observe(el);
     });
+    
+    // Ripple Effect on Buttons
+    document.querySelectorAll('.btn, .filter-btn').forEach(button => {
+        button.classList.add('ripple');
+    });
+
+    // Smooth Image Loading
+    const images = document.querySelectorAll('img[loading]');
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.addEventListener('load', () => {
+                    img.classList.add('loaded');
+                    const parent = img.closest('.product-image, .featured-image, .gallery-item');
+                    if (parent) parent.classList.add('loaded');
+                });
+                img.addEventListener('error', () => {
+                    const parent = img.closest('.product-image, .featured-image, .gallery-item');
+                    if (parent) parent.classList.add('error');
+                });
+                if (img.complete) {
+                    img.classList.add('loaded');
+                    const parent = img.closest('.product-image, .featured-image, .gallery-item');
+                    if (parent) parent.classList.add('loaded');
+                }
+                imageObserver.unobserve(img);
+            }
+        });
+    }, { rootMargin: '50px' });
+    
+    images.forEach(img => imageObserver.observe(img));
     
     // WhatsApp Button Click Handling
     document.querySelectorAll('.whatsapp-btn, .whatsapp-float').forEach(btn => {
@@ -109,4 +183,94 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.add('active');
         }
     });
+
+    // Add floating animation to trust icons
+    document.querySelectorAll('.trust-icon, .value-icon').forEach((icon, index) => {
+        icon.style.animationDelay = `${index * 0.2}s`;
+        icon.classList.add('floating');
+    });
+
+    // Scroll to Top Button
+    const scrollToTopBtn = document.createElement('button');
+    scrollToTopBtn.className = 'scroll-to-top';
+    scrollToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    scrollToTopBtn.setAttribute('aria-label', 'Scroll to top');
+    document.body.appendChild(scrollToTopBtn);
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Enhanced scroll behavior for mobile
+    let lastScrollTop = 0;
+    
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (window.innerWidth <= 768) {
+            if (scrollTop > lastScrollTop && scrollTop > 200) {
+                mainHeader.style.transform = 'translateY(-100%)';
+            } else {
+                mainHeader.style.transform = 'translateY(0)';
+            }
+        }
+        
+        lastScrollTop = scrollTop;
+    }, { passive: true });
+
+    // Enhanced Newsletter Form with validation
+    const newsletterForm = document.getElementById('newsletter-form');
+    if (newsletterForm) {
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = emailInput.value;
+            
+            // Simple email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                emailInput.style.border = '2px solid #ff4444';
+                setTimeout(() => {
+                    emailInput.style.border = '';
+                }, 2000);
+                return;
+            }
+            
+            // Success animation
+            const submitBtn = newsletterForm.querySelector('button');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
+            submitBtn.style.background = '#4CAF50';
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.background = '';
+                newsletterForm.reset();
+            }, 3000);
+        });
+        
+        // Real-time validation feedback
+        emailInput.addEventListener('input', () => {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (emailInput.value && emailRegex.test(emailInput.value)) {
+                emailInput.style.borderColor = '#4CAF50';
+            } else if (emailInput.value) {
+                emailInput.style.borderColor = '#ff4444';
+            } else {
+                emailInput.style.borderColor = '';
+            }
+        });
+    }
 });

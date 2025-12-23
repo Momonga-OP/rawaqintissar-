@@ -96,8 +96,71 @@ class ShoppingCart {
         // Checkout button
         const checkoutBtn = document.getElementById('checkout-btn');
         if (checkoutBtn) {
-            checkoutBtn.addEventListener('click', () => this.sendToWhatsApp());
+            checkoutBtn.addEventListener('click', () => this.showOrderConfirmation());
         }
+    }
+
+    showOrderConfirmation() {
+        if (this.cart.length === 0) {
+            alert('Your cart is empty!');
+            return;
+        }
+
+        // Create confirmation modal
+        const modal = document.createElement('div');
+        modal.className = 'order-confirm-modal';
+        modal.innerHTML = `
+            <div class="order-confirm-content">
+                <div class="order-confirm-header">
+                    <i class="fas fa-clipboard-check"></i>
+                    <h2>Confirm Your Order</h2>
+                    <p style="color: var(--text-light); font-size: 14px;">Review your order before sending</p>
+                </div>
+                <div class="order-confirm-body">
+                    ${this.cart.map((item, index) => `
+                        <div class="order-summary-item">
+                            <div class="order-summary-details">
+                                <h4>${index + 1}. ${item.name}</h4>
+                                <p>Size: <strong>${item.size}</strong> | Quantity: <strong>${item.quantity}</strong></p>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="order-total">
+                    Total Items: ${this.cart.reduce((sum, item) => sum + item.quantity, 0)}
+                </div>
+                <div class="order-confirm-actions">
+                    <button class="btn btn-secondary" id="cancel-order">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                    <button class="btn btn-primary" id="confirm-order">
+                        <i class="fab fa-whatsapp"></i> Send to WhatsApp
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        setTimeout(() => modal.classList.add('active'), 10);
+        
+        // Add event listeners
+        const cancelBtn = modal.querySelector('#cancel-order');
+        const confirmBtn = modal.querySelector('#confirm-order');
+        
+        const closeModal = () => {
+            modal.classList.remove('active');
+            setTimeout(() => modal.remove(), 300);
+        };
+        
+        cancelBtn.addEventListener('click', closeModal);
+        confirmBtn.addEventListener('click', () => {
+            closeModal();
+            this.sendToWhatsApp();
+        });
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
     }
 
     addToCart(productCard) {
@@ -269,21 +332,63 @@ class ShoppingCart {
         }
 
         const phoneNumber = '212614866647';
-        let message = '🛍️ *New Order from RawaqIntissar Website*\n\n';
-        message += '📦 *Order Details:*\n';
+        const websiteURL = window.location.origin;
+        
+        // Create formatted order message
+        let message = '═══════════════════════\n';
+        message += '🛍️ *NEW ORDER - RAWAQINTISSAR*\n';
+        message += '═══════════════════════\n\n';
+        
+        message += '📅 *Order Date:* ' + new Date().toLocaleDateString('en-GB', {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        }) + '\n\n';
+        
+        message += '━━━━━━━━━━━━━━━━━━━━━\n';
+        message += '📦 *ORDER DETAILS*\n';
+        message += '━━━━━━━━━━━━━━━━━━━━━\n\n';
 
         this.cart.forEach((item, index) => {
-            message += `${index + 1}. ${item.name}\n`;
-            message += `   Size: ${item.size} | Qty: ${item.quantity}\n\n`;
+            message += `*${index + 1}. ${item.name}*\n`;
+            message += `   👗 Product: ${item.name}\n`;
+            message += `   📏 Size: ${item.size}\n`;
+            message += `   🔢 Quantity: ${item.quantity}\n`;
+            if (item.image) {
+                const fullImageURL = item.image.startsWith('http') ? item.image : `${websiteURL}/${item.image}`;
+                message += `   🖼️ Image: ${fullImageURL}\n`;
+            }
+            message += `\n`;
         });
 
+        message += '━━━━━━━━━━━━━━━━━━━━━\n';
         const totalItems = this.cart.reduce((sum, item) => sum + item.quantity, 0);
-        message += `\n✨ *Total Items:* ${totalItems}`;
+        message += `✨ *TOTAL ITEMS:* ${totalItems}\n`;
+        message += '━━━━━━━━━━━━━━━━━━━━━\n\n';
+        
+        message += '📍 *Customer Information Needed:*\n';
+        message += '• Full Name:\n';
+        message += '• Phone Number:\n';
+        message += '• Delivery Address:\n';
+        message += '• City:\n\n';
+        
+        message += '💬 *Additional Notes:*\n';
+        message += '(Please add any special requests here)\n\n';
+        
+        message += '═══════════════════════\n';
+        message += '🌐 Visit: rawaqintissar.shop\n';
+        message += '📧 Email: rawaqintissar@gmail.com\n';
+        message += '═══════════════════════\n';
 
         const encodedMessage = encodeURIComponent(message);
         const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
         window.open(whatsappURL, '_blank');
+        
+        // Show success message
+        this.showNotification('Order sent to WhatsApp! 🎉');
     }
 
     showNotification(message) {
